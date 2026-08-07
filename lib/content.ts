@@ -1,11 +1,11 @@
 ﻿/* ────────────────────────────────────────────────────────────────
-   CONTENT LAYER — all copy lives here (from Astral/Agency)
+   CONTENT LAYER — all copy lives here (from Ruyaki Systems)
    ──────────────────────────────────────────────────────────────── */
 
 export const SITE = {
-  url: "https://astrallabs.co.ke",
-  name: "Astral Labs",
-  shortName: "Astral Labs",
+  url: "https://ruyakisystems.co.ke",
+  name: "Ruyaki Systems",
+  shortName: "Ruyaki Systems",
   email: "kangetheian19@gmail.com",
   phone: "+254 716 777 633",
   founderName: "Ian Kangethe",

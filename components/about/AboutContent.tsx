@@ -40,30 +40,50 @@ export default function AboutContent() {
         animate="visible"
         className="space-y-6 text-body-lg text-text-secondary leading-relaxed"
       >
-        <motion.p variants={itemVariants}>
-          Local businesses are evolving at an incredible pace. Every day, growing companies are upgrading their logistics, mastering customer service, and modernizing their physical operations to compete at a world-class level.
+        <motion.p variants={itemVariants} className="text-body-lg font-semibold text-text-primary">
+          We build the digital systems behind growing businesses.
         </motion.p>
         <motion.p variants={itemVariants}>
-          But when you look at their digital presence, there is often a massive gap. A brilliant, thriving business should not be held back by an outdated, slow website that fails to reflect its true quality.
+          Local businesses have a growing gap between how well businesses operate and how well they are represented online.
         </motion.p>
         <motion.p variants={itemVariants}>
-          Astral Agency was started to bridge that exact gap. We do not just build online presence; we build high-performance business engines. Every website and booking system we design is engineered from the ground up for speed and visibility. By combining clean code with deep search engine optimization (SEO), we ensure your business ranks exactly where your customers are looking.
+          A great business can have excellent service, a loyal customer base, and ambitious plans for growth, yet still be held back by a slow website, poor visibility on Google, or processes that rely on scattered messages and manual work.
         </motion.p>
         <motion.p variants={itemVariants} className="font-mono text-label text-gold uppercase tracking-widest mb-6">
-          We chose the name Astral because it means to reach for the stars. For us, that is not just a poetic phrase. It represents the exact trajectory we want for your business.
+          Ruyaki Systems was built to bridge that gap.
         </motion.p>
         <motion.p variants={itemVariants}>
-          Our goal is to take the operational excellence you have already built offline and project it flawlessly online. We turn your website into a tool that actively captures premium clients, reduces your daily administrative work, and drives measurable revenue to your bottom line.
+          We don&apos;t build websites simply to give businesses an online presence. We build digital systems designed to help businesses get discovered, capture customers, and operate more efficiently.
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          Our websites are engineered from the ground up for speed, usability, search visibility, and long-term growth. We approach visibility as part of the build itself, not something added afterwards. The goal isn&apos;t simply to have a website — it&apos;s to have a digital presence that gives customers a reason to find you, trust you, and get in touch.
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          Beyond the front of the business, we build the systems that keep things moving behind it. Booking and reservation systems, payment and ordering solutions, customer and lead management, dashboards, content management systems, and other custom tools are built around the way each business actually operates.
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          No unnecessary complexity. No forcing a business into a template that doesn&apos;t fit.
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          We take the operational excellence businesses have already built and bring it online with the same level of care.
+        </motion.p>
+        <motion.p variants={itemVariants}>
+          Whether we&apos;re helping a restaurant turn searches into reservations, a service business turn visitors into enquiries, or a growing company replace manual processes with a proper digital system, the objective stays the same:
+        </motion.p>
+        <motion.p variants={itemVariants} className="font-mono text-label text-gold uppercase tracking-widest mb-6">
+          Build technology that works for the business not the other way around.
         </motion.p>
       </motion.div>
-      <motion.p
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="mt-10 text-sm font-semibold text-gold"
+        className="mt-10 text-sm text-text-secondary"
       >
-        Ian Kangethe, Founder
-      </motion.p>
+        <p className="font-semibold text-gold">Ian Kangethe</p>
+        <p>Founder &amp; Technical Lead</p>
+        <p>Ruyaki Systems</p>
+      </motion.div>
     </div>
   );
 }

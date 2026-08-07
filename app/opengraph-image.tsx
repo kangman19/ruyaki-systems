@@ -59,7 +59,7 @@ export default function OGImage() {
               color: "#E8C87A",
             }}
           >
-            Astral Labs
+            Ruyaki Systems
           </div>
 
           <div

@@ -5,9 +5,9 @@ import AboutContent from "@/components/about/AboutContent";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About Astral Labs | Custom Software Development Nairobi",
+  title: "About Ruyaki Systems | Custom Software Development Nairobi",
   description:
-    "Learn about Astral Labs, a software development agency in Nairobi building high-performance web apps and systems for growing businesses across Kenya.",
+    "Learn about Ruyaki Systems, a software development agency in Nairobi building high-performance web apps and systems for growing businesses across Kenya.",
   path: "/about",
 });
 

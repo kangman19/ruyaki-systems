@@ -6,8 +6,8 @@ import SuperSection from "@/components/super-section/SuperSection";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Astral Labs | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
-  description: "Astral Labs builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
+  title: "Ruyaki Systems | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
+  description: "Ruyaki Systems builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
   path: "/",
 });
 

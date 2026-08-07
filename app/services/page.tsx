@@ -5,7 +5,7 @@ import ServicesContent from "@/components/services/ServicesContent";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Web Development & Software Services in Nairobi | Astral Labs",
+  title: "Web Development & Software Services in Nairobi | Ruyaki Systems",
   description:
     "Custom web apps, API integration, booking systems, and digital solutions for businesses in Kenya. We build secure, fast, and Google-visible systems using Next.js, TypeScript, Flutter, and Firebase.",
   path: "/services",

@@ -10,7 +10,7 @@ export default function Footer() {
           <Link href="/" className="flex items-center gap-2.5 mb-4 group w-fit">
             <Image
               src="/logo.png"
-              alt="Astral Agency"
+              alt="Ruyaki Systems"
               width={32}
               height={32}
               className="rounded-lg"

@@ -8,11 +8,11 @@ import { SITE } from "@/lib/content";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Astral Labs | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
-    template: "%s | Astral Labs",
+    default: "Ruyaki Systems | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
+    template: "%s | Ruyaki Systems",
   },
   description:
-    "Astral Labs builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
+    "Ruyaki Systems builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
   robots: {
     index: true,
     follow: true,
@@ -26,23 +26,23 @@ export const metadata: Metadata = {
     locale: "en_KE",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Astral Labs | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
+    title: "Ruyaki Systems | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
     description:
-      "Astral Labs builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
+      "Ruyaki Systems builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Astral Labs - Software Development Agency",
+        alt: "Ruyaki Systems - Software Development Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Astral Labs | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
+    title: "Ruyaki Systems | Software Development, Digital Solutions, Web Design in Nairobi, Kenya",
     description:
-      "Astral Labs builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
+      "Ruyaki Systems builds custom web apps, platforms, and software solutions for growing businesses in Kenya. Let's turn your idea into production-ready software.",
     images: ["/opengraph-image.png"],
   },
 };

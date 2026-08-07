@@ -241,7 +241,7 @@ export default function CaseStudySection() {
               className="bg-surface border border-border rounded-2xl p-4 relative">
               <div className="absolute top-3 left-4 text-3xl text-gold/30 font-serif leading-none">"</div>
               <p className="text-sm text-text-secondary italic pt-3 leading-relaxed">
-                Astral completely transformed how customers find us online. Our phone started ringing more within the first week.
+                Ruyaki completely transformed how customers find us online. Our phone started ringing more within the first week.
               </p>
               <footer className="mt-3 flex items-center gap-2">
                 <div className="w-7 h-7 rounded-full bg-gold/20 border border-gold/30 flex items-center justify-center text-xs font-bold text-gold">JK</div>

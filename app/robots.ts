@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://astrallabs.co.ke/sitemap.xml",
+    sitemap: "https://ruyakisystems.co.ke/sitemap.xml",
   };
 }

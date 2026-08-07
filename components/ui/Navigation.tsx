@@ -41,14 +41,14 @@ export default function Navigation() {
             <Link href="/" className="flex items-center gap-2.5 group">
               <Image
                 src="/logo.png"
-                alt="Astral Agency"
+                alt="Ruyaki Systems"
                 width={32}
                 height={32}
                 className="rounded-lg"
                 priority
               />
               <span className="font-bold text-text-primary tracking-tight">
-                Astral<span className="text-gold">.</span>
+                Ruyaki<span className="text-gold">.</span>
               </span>
             </Link>
 

@@ -5,7 +5,7 @@ import ContactSection from "@/components/cta/ContactSection";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Astral Labs | Web Development Consultation in Nairobi",
+  title: "Contact Ruyaki Systems | Web Development Consultation in Nairobi",
   description:
     "Start your software project. Tell us about your business and we'll tell you exactly what we'd build. Free consultation with the founder within one working day.",
   path: "/contact",
