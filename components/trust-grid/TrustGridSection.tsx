@@ -1,0 +1,157 @@
+"use client";
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Shield, Smartphone, Search, Clock, HeartHandshake, Globe, Lock, Cpu } from "lucide-react";
+import { useInView, useMousePosition } from "@/lib/utils";
+
+interface BentoCardProps {
+  icon: React.ElementType; title: string; description: string;
+  accentColor: "gold" | "sage" | "amber"; size?: "normal" | "wide" | "tall";
+  tag?: string; children?: React.ReactNode; delay?: number; inView: boolean;
+}
+
+function BentoCard({ icon: Icon, title, description, accentColor, size = "normal", tag, children, delay = 0, inView }: BentoCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const pos = useMousePosition(cardRef as React.RefObject<HTMLElement | null>);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const colorMap = {
+    gold:  { icon: "text-gold",  iconBg: "bg-gold/10 border-gold/20",  glow: "rgba(201,169,110,0.12)", glowBorder: "rgba(201,169,110,0.45)", tag: "text-gold bg-gold/10 border-gold/20"  },
+    sage:  { icon: "text-sage",  iconBg: "bg-sage/10 border-sage/20",  glow: "rgba(123,158,135,0.12)", glowBorder: "rgba(123,158,135,0.45)", tag: "text-sage bg-sage/10 border-sage/20"  },
+    amber: { icon: "text-amber", iconBg: "bg-amber/10 border-amber/20", glow: "rgba(212,149,106,0.12)", glowBorder: "rgba(212,149,106,0.45)", tag: "text-amber bg-amber/10 border-amber/20" },
+  };
+  const c = colorMap[accentColor];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay, duration: 0.5, type: "spring", stiffness: 80, damping: 20 }}
+      ref={cardRef} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+      className={`relative rounded-3xl border border-border overflow-hidden transition-all duration-300 group ${size === "wide" ? "lg:col-span-2" : ""} ${size === "tall" ? "lg:row-span-2" : ""}`}
+      style={{ background: isHovered ? `radial-gradient(280px circle at ${pos.x}px ${pos.y}px, ${c.glow}, transparent 70%), #111113` : "#111113" }}
+    >
+      <div className="absolute inset-0 rounded-3xl transition-opacity duration-300 pointer-events-none"
+        style={{ opacity: isHovered ? 1 : 0, background: `radial-gradient(200px circle at ${pos.x}px ${pos.y}px, ${c.glowBorder}, transparent 60%)`,
+          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)", WebkitMaskComposite: "xor", maskComposite: "exclude", padding: "1px" }} />
+      <div className="relative z-10 p-6 h-full flex flex-col">
+        <div className="flex items-start justify-between mb-4">
+          <div className={`p-3 rounded-2xl border ${c.iconBg} transition-transform duration-300 group-hover:scale-110`}>
+            <Icon size={20} className={c.icon} />
+          </div>
+          {tag && <span className={`text-label font-mono uppercase tracking-widest px-2.5 py-1 rounded-full border ${c.tag}`}>{tag}</span>}
+        </div>
+        <h3 className="text-lg font-bold text-text-primary mb-2 leading-tight">{title}</h3>
+        <p className="text-body-md text-text-secondary leading-relaxed flex-1">{description}</p>
+        {children && <div className="mt-4">{children}</div>}
+      </div>
+    </motion.div>
+  );
+}
+
+function SecurityBadges() {
+  return (
+    <div className="flex flex-wrap gap-2 mt-2">
+      {["TLS 1.3", "SSL Encryption", "DDoS Protection", "Static Isolation"].map((label, i) => (
+        <motion.div key={label} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.15 }}
+          className="flex items-center gap-1.5 bg-gold/5 border border-gold/20 rounded-lg px-2.5 py-1.5">
+          <Lock size={10} className="text-gold" />
+          <span className="font-mono text-[10px] text-gold">{label}</span>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+function ScoreBar({ label, score, color }: { label: string; score: number; color: string }) {
+  return (
+    <div className="space-y-1">
+      <div className="flex justify-between text-xs">
+        <span className="text-text-muted">{label}</span>
+        <span className="font-mono" style={{ color }}>{score}</span>
+      </div>
+      <div className="h-1.5 bg-surface-2 rounded-full overflow-hidden">
+        <motion.div initial={{ width: 0 }} animate={{ width: `${score}%` }} transition={{ duration: 1, delay: 0.5 }}
+          className="h-full rounded-full" style={{ backgroundColor: color }} />
+      </div>
+    </div>
+  );
+}
+
+const UPTIME_DAYS = Array.from({ length: 60 }, (_, i) => ({
+  status: (i === 14 || i === 41) ? "incident" : "up" as "up" | "incident",
+  day: i,
+}));
+
+function UptimeGrid() {
+  return (
+    <div className="flex flex-wrap gap-1 mt-2">
+      {UPTIME_DAYS.map((d) => (
+        <div key={d.day} className={`w-2 h-2 rounded-sm ${d.status === "up" ? "bg-sage/60" : "bg-red-500/60"}`} />
+      ))}
+      <div className="w-full mt-2 flex items-center justify-between">
+        <span className="text-[10px] text-text-muted font-mono">60 days ago</span>
+        <span className="text-[10px] text-sage font-mono font-bold">99.97% uptime</span>
+        <span className="text-[10px] text-text-muted font-mono">Today</span>
+      </div>
+    </div>
+  );
+}
+
+export default function TrustGridSection() {
+  const [sectionRefCb, inView] = useInView(0.1);
+
+  return (
+    <section id="services" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-canvas">
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-2xl mb-16">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5">
+            <Shield size={12} className="text-gold" />
+            <span className="font-mono text-label text-gold uppercase tracking-wider">Built Right, From the Start</span>
+          </motion.div>
+          <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
+            className="text-display-lg font-extrabold text-text-primary mb-4">
+            Everything your business{" "}<span className="gradient-text-gold">needs to grow online.</span>
+          </motion.h2>
+          <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
+            className="text-body-md text-text-secondary">
+            We handle the hard technical stuff so you can focus on running your business. Plain English, real results.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto">
+          <BentoCard icon={Shield} title="Airtight Security" description="Built on an isolated, serverless global architecture. By serving pre-compiled static HTML instead of running a vulnerable database backend, your site is implicitly protected against standard server exploits, malware injection, and common security threats out of the box." accentColor="gold" size="wide" tag="Always On" delay={0.1} inView={inView}><SecurityBadges /></BentoCard>
+          <BentoCard icon={Smartphone} title="Mobile-First Engine" description="Over 70% of your customers browse on their phones. Every site we build works flawlessly on all screen sizes, from a small Nokia to a wide desktop." accentColor="sage" tag="Responsive" delay={0.2} inView={inView}>
+            <div className="mt-3 space-y-2">
+              <ScoreBar label="Performance" score={98} color="#C9A96E" />
+              <ScoreBar label="Accessibility" score={100} color="#7B9E87" />
+              <ScoreBar label="Best Practices" score={96} color="#D4956A" />
+            </div>
+          </BentoCard>
+          <BentoCard icon={Clock} title="Always Online, Never Down" description="We deploy on enterprise-grade infrastructure with redundancy built in ensuring high availability and uptime." accentColor="sage" tag="99.9% SLA" delay={0.3} inView={inView}><UptimeGrid /></BentoCard>
+          <BentoCard icon={Search} title="Search Engine Optimization" description="Engineered with semantic HTML structures, lightning-fast asset optimization, and pristine metadata configurations out of the box. We make sure search engines crawl and index your business flawlessly so local customers find you first." accentColor="gold" size="wide" delay={0.4} inView={inView} />
+          <BentoCard icon={HeartHandshake} title="Human Support, Always" description="You'll always reach a real person, not a chatbot. WhatsApp, email, or phone. We're your long-term tech partner, not just a one-time vendor." accentColor="amber" tag="Local Team" delay={0.5} inView={inView} />
+          <BentoCard icon={Globe} title="Blazing Fast Load Times" description="Every millisecond your site takes to load costs you customers. We optimize your code and assets so your pages load instantly on any mobile network in Nairobi." accentColor="sage" delay={0.6} inView={inView} />
+
+          {/* Tech stack */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.7 }}
+            className="lg:col-span-3 bg-surface border border-border rounded-3xl p-6 bento-border">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 rounded-2xl bg-amber/10 border border-amber/20"><Cpu size={20} className="text-amber" /></div>
+              <div>
+                <h3 className="font-bold text-text-primary">Enterprise Tech Stack</h3>
+                <p className="text-sm text-text-muted">Modern, secure development tools built for speed and reliability.</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "AWS Global Infrastructure", "Serverless APIs", "Edge Network Routing", "Paystack - Digital Payments"].map((tech) => (
+                <span key={tech} className="px-3 py-1.5 bg-surface-2 border border-border rounded-xl text-xs font-mono text-text-secondary hover:border-gold/30 hover:text-gold transition-colors duration-200 cursor-default">{tech}</span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
