@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { animate, stagger, splitText } from "animejs";
 import { useIsMobile } from "@/lib/utils";
 
 const PATH_D = "M -50,200 C 150,120 300,320 500,180 S 750,80 900,240 S 1150,400 1400,200 S 1700,60 1920,280";
@@ -72,12 +73,69 @@ export default function HeroSection() {
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
   const [pathProgress, setPathProgress] = useState(0.15);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (!headlineRef.current) return;
+    const headline = headlineRef.current;
+
+    // Words must stay grouped (words: true) so each word is one atomic box —
+    // otherwise the browser can insert a line break between individual
+    // character spans and split words mid-way (e.g. "deser" / "ves").
+    const splitter = splitText(headline, { words: true, chars: true });
+
+    // Splitting moves "gradient-text-gold" text into child spans, which
+    // breaks its background-clip gradient (the parent has no text left to
+    // clip to, and children don't inherit background-image/clip). Reapply
+    // the same gradient per character, sliced by position, so it still
+    // reads as one continuous gradient across the phrase.
+    const applyGoldGradient = () => {
+      headline.querySelectorAll<HTMLElement>(".gradient-text-gold").forEach((goldEl) => {
+        const rect = goldEl.getBoundingClientRect();
+        goldEl.querySelectorAll<HTMLElement>("[data-char]").forEach((charEl) => {
+          const charRect = charEl.getBoundingClientRect();
+          charEl.style.backgroundImage = "linear-gradient(135deg, #C9A96E, #E8C87A, #D4956A)";
+          charEl.style.backgroundSize = `${rect.width}px ${rect.height}px`;
+          charEl.style.backgroundPosition = `-${charRect.left - rect.left}px -${charRect.top - rect.top}px`;
+          charEl.style.webkitBackgroundClip = "text";
+          charEl.style.backgroundClip = "text";
+          charEl.style.color = "transparent";
+          charEl.style.webkitTextFillColor = "transparent";
+        });
+      });
+    };
+    applyGoldGradient();
+
+    const resizeObserver = new ResizeObserver(() => applyGoldGradient());
+    resizeObserver.observe(headline);
+
+    const animation = animate(splitter.chars, {
+      y: [
+        { to: "-2.75rem", ease: "outExpo", duration: 600 },
+        { to: 0, ease: "outBounce", duration: 800, delay: 100 },
+      ],
+      rotate: {
+        from: "-1turn",
+        delay: 0,
+      },
+      delay: stagger(50),
+      ease: "inOutCirc",
+      loopDelay: 1000,
+      loop: true,
+    });
+
+    return () => {
+      resizeObserver.disconnect();
+      animation.pause();
+      splitter.revert();
+    };
   }, []);
 
   const handleScroll = useCallback(() => {
@@ -158,6 +216,7 @@ export default function HeroSection() {
       <div className="flex-1 relative z-20 w-full max-w-5xl mx-auto px-6 pt-24 text-center flex flex-col items-center justify-center">
         {/* Headline */}
         <motion.h1
+          ref={headlineRef}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, type: "spring", stiffness: 60, damping: 20 }}
