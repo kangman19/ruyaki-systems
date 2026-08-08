@@ -50,7 +50,15 @@ export default function OGImage() {
         />
 
         {/* Main content */}
-        <div style={{ textAlign: "center", zIndex: 10 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            zIndex: 10,
+          }}
+        >
           <div
             style={{
               fontSize: 72,
