@@ -3,7 +3,7 @@
    ──────────────────────────────────────────────────────────────── */
 
 export const SITE = {
-  url: "https://ruyakisystems.co.ke",
+  url: "https://ruyaki.co.ke",
   name: "Ruyaki Systems",
   shortName: "Ruyaki Systems",
   email: "kangetheian19@gmail.com",

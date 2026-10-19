@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { SITE } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ruyakisystems.co.ke";
+  const baseUrl = "https://ruyaki.co.ke";
 
   return [
     {

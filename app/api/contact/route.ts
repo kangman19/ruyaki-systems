@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
             <span style="display:inline-block;background:#C9A96E;color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px">New Lead</span>
           </div>
           <h2 style="margin:0 0 8px;font-size:22px;font-weight:700;color:#111">Project Enquiry</h2>
-          <p style="margin:0 0 28px;font-size:14px;color:#666">Submitted via ruyakisystems.co.ke contact form</p>
+          <p style="margin:0 0 28px;font-size:14px;color:#666">Submitted via ruyaki.co.ke contact form</p>
           <table style="width:100%;border-collapse:collapse;border-top:1px solid #eee">
             ${row("Name", name)}
             ${row("Contact", contactInfo)}
