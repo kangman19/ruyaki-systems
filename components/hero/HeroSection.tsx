@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { animate, stagger, splitText } from "animejs";
 import { useIsMobile } from "@/lib/utils";
+import { useMotionTier, useFinePointer, getMotionTier } from "@/lib/motion";
 
 const PATH_D = "M -50,200 C 150,120 300,320 500,180 S 750,80 900,240 S 1150,400 1400,200 S 1700,60 1920,280";
 const PATH_LENGTH = 2200;
@@ -70,6 +71,9 @@ function StatBadge({ label, value, delay, className }: { label: string; value: s
 
 export default function HeroSection() {
   const isMobile = useIsMobile();
+  const tier = useMotionTier();
+  const finePointer = useFinePointer();
+  const isFull = tier === "full";
   const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -83,7 +87,10 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    if (!headlineRef.current) return;
+    // Letter-by-letter looping headline is the heaviest effect on the page:
+    // only run it on capable devices. getMotionTier() reads the real value even
+    // on the first effect pass (before React re-renders with the detected tier).
+    if (!headlineRef.current || !isFull || getMotionTier() !== "full") return;
     const headline = headlineRef.current;
 
     // Words must stay grouped (words: true) so each word is one atomic box —
@@ -136,23 +143,29 @@ export default function HeroSection() {
       animation.pause();
       splitter.revert();
     };
-  }, []);
+  }, [isFull]);
 
-  const handleScroll = useCallback(() => {
-    if (!sectionRef.current) return;
-    const { top, height } = sectionRef.current.getBoundingClientRect();
-    setPathProgress(Math.max(0.1, Math.min(0.9, (-top / height) * 0.8 + 0.15)));
-  }, []);
-
+  // Scroll-linked path: full tier only, throttled to one update per frame.
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    if (!isFull) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        if (!sectionRef.current) return;
+        const { top, height } = sectionRef.current.getBoundingClientRect();
+        setPathProgress(Math.max(0.1, Math.min(0.9, (-top / height) * 0.8 + 0.15)));
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); };
+  }, [isFull]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (isMobile) return;
+    if (isMobile || !isFull || !finePointer) return;
     setPathProgress(0.1 + (e.clientX / window.innerWidth) * 0.8);
-  }, [isMobile]);
+  }, [isMobile, isFull, finePointer]);
 
   return (
     <section
@@ -160,7 +173,7 @@ export default function HeroSection() {
       onMouseMove={handleMouseMove}
       className="relative min-h-screen flex flex-col items-center overflow-hidden bg-canvas"
     >
-      {!isMobile && <CursorOrb />}
+      {!isMobile && finePointer && isFull && <CursorOrb />}
 
       {/* Grid background */}
       <div className="absolute inset-0 opacity-20" style={{
@@ -271,7 +284,7 @@ export default function HeroSection() {
         className="relative z-20 mt-8 pb-8 flex flex-col items-center gap-1 text-text-muted"
       >
         <span className="font-mono text-label uppercase tracking-widest">Scroll</span>
-        <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+        <motion.div animate={isFull ? { y: [0, 5, 0] } : { y: 0 }} transition={{ duration: 1.5, repeat: isFull ? Infinity : 0, ease: "easeInOut" }}>
           <ChevronDown size={18} />
         </motion.div>
       </motion.div>

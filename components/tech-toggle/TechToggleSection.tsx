@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code2, Sparkles, Terminal, ChevronRight } from "lucide-react";
 import { useInView, useIsMobile } from "@/lib/utils";
+import { useMotionTier } from "@/lib/motion";
 
 // ─── Code snippets for Geek View ─────────────────────────────────────────────
 const CODE_SNIPPETS: Record<string, string[]> = {
@@ -105,6 +106,7 @@ const FRIENDLY_CARDS = [
 function TerminalLine({ text, delay, isComment }: { text: string; delay: number; isComment?: boolean }) {
   const [visible, setVisible] = useState(false);
   const [chars, setChars] = useState(0);
+  const tier = useMotionTier();
 
   useEffect(() => {
     const show = setTimeout(() => setVisible(true), delay);
@@ -113,6 +115,8 @@ function TerminalLine({ text, delay, isComment }: { text: string; delay: number;
 
   useEffect(() => {
     if (!visible || !text) return;
+    // Lite/off devices: skip the 12ms-per-tick typewriter (hundreds of state updates) and show the line at once.
+    if (tier !== "full") { setChars(text.length); return; }
     let i = 0;
     const interval = setInterval(() => {
       i += 2;
@@ -120,7 +124,7 @@ function TerminalLine({ text, delay, isComment }: { text: string; delay: number;
       if (i >= text.length) clearInterval(interval);
     }, 12);
     return () => clearInterval(interval);
-  }, [visible, text]);
+  }, [visible, text, tier]);
 
   if (!visible) return null;
   if (text === "") return <div className="h-4" />;

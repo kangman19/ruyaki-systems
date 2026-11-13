@@ -4,6 +4,8 @@ import Navigation from "@/components/ui/Navigation";
 import Footer from "@/components/ui/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { SITE } from "@/lib/content";
+import MotionProvider from "@/components/MotionProvider";
+import { MOTION_BOOT_SCRIPT } from "@/lib/motion-boot";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -75,11 +77,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: MOTION_BOOT_SCRIPT }} />
+      </head>
       <body className="bg-canvas">
-        <Navigation />
-        {children}
-        <Footer />
+        <MotionProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </MotionProvider>
         <GoogleAnalytics />
         <script
           type="application/ld+json"

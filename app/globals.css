@@ -137,3 +137,40 @@ body {
   50% { transform: translateY(-10px); }
 }
 .animate-floaty { animation: float 6s ease-in-out infinite; }
+
+/* ─── Device-aware motion tiers (set on <html data-motion> by lib/motion.ts) ───
+   "lite" = weak/throttled/data-saving device. "off" = user asked for reduced motion. */
+html[data-motion="lite"] .animate-pulse,
+html[data-motion="lite"] .animate-floaty,
+html[data-motion="lite"] .animate-float,
+html[data-motion="lite"] .animate-blink,
+html[data-motion="lite"] .animate-pulse-gold,
+html[data-motion="lite"] .animate-scan-line,
+html[data-motion="lite"] .cursor-blink::after,
+html[data-motion="lite"] .terminal-scanline::after,
+html[data-motion="off"] .animate-pulse,
+html[data-motion="off"] .animate-floaty,
+html[data-motion="off"] .animate-float,
+html[data-motion="off"] .animate-blink,
+html[data-motion="off"] .animate-pulse-gold,
+html[data-motion="off"] .animate-scan-line {
+  animation: none !important; /* .animate-spin is left alone: it's a functional loading indicator */
+}
+/* Decorative blurred glow blobs are the most expensive paint on low-end GPUs: drop them */
+html[data-motion="lite"] [class*="blur-"]:not([class*="backdrop-blur"]),
+html[data-motion="off"] [class*="blur-"]:not([class*="backdrop-blur"]) {
+  display: none !important;
+}
+/* Backdrop blur re-blurs everything behind it every frame. Swap for a near-opaque fill */
+html[data-motion="lite"] [class*="backdrop-blur"],
+html[data-motion="off"] [class*="backdrop-blur"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[data-motion="lite"] header [class*="backdrop-blur"],
+html[data-motion="lite"] .fixed[class*="backdrop-blur"] {
+  background-color: rgba(10, 10, 11, 0.97) !important;
+}
+html[data-motion="lite"] .noise-overlay::after { display: none; }
+html[data-motion="lite"],
+html[data-motion="off"] { scroll-behavior: auto; }
