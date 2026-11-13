@@ -16,7 +16,7 @@ export default function ContactSection() {
   const [selectedBudget, setSelectedBudget] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const inputClass = "w-full bg-surface border border-border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-gold/50 focus:ring-2 focus:ring-gold/10 transition-all duration-200 text-sm";
+  const inputClass = "w-full bg-recessed border border-white/[0.12] rounded-md px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/15 transition-all duration-200 text-sm";
 
   const handleSubmit = async () => {
     setFormState("submitting");
@@ -40,7 +40,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-canvas overflow-hidden">
+    <section id="contact" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-canvas overflow-hidden">
       <div className="absolute left-0 bottom-0 w-[500px] h-[400px] rounded-full bg-gold/4 blur-[140px] pointer-events-none" />
       <div className="absolute right-0 top-0 w-[400px] h-[400px] rounded-full bg-sage/4 blur-[120px] pointer-events-none" />
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -55,7 +55,7 @@ export default function ContactSection() {
               <span className="font-mono text-label text-gold uppercase tracking-wider">Start the Conversation</span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2, duration: 0.7, type: "spring", stiffness: 60, damping: 20 }}
-              className="text-display-md font-extrabold text-text-primary mb-4">
+              className="text-display-md font-bold text-text-primary mb-4">
               Tell us about your business.<br />
               <span className="gradient-text-gold">We&apos;ll tell you what we&apos;d build, for free.</span>
             </motion.h2>
@@ -148,7 +148,7 @@ export default function ContactSection() {
                     placeholder="What's your business, and what problem are you trying to solve?" className={`${inputClass} resize-none`} />
                 </div>
                 <button onClick={handleSubmit} disabled={formState === "submitting"}
-                  className="group w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-gold text-canvas font-bold rounded-2xl transition-all duration-300 hover:shadow-gold-md hover:scale-[1.01] disabled:opacity-70 overflow-hidden relative">
+                  className="group w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] font-bold rounded-2xl transition-all duration-300 hover:shadow-gold-md hover:scale-[1.01] disabled:opacity-70 overflow-hidden relative">
                   {formState === "submitting" ? (
                     <><div className="w-4 h-4 border-2 border-canvas/30 border-t-canvas rounded-full animate-spin" />Sending…</>
                   ) : (

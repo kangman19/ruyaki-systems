@@ -43,9 +43,9 @@ export default function ContactSection() {
   };
 
   const inputClass = `
-    w-full bg-surface border border-border rounded-xl px-4 py-3
+    w-full bg-recessed border border-white/[0.12] rounded-md px-4 py-3
     text-text-primary placeholder:text-text-muted
-    focus:outline-none focus:border-teal/50 focus:ring-2 focus:ring-teal/10
+    focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/15
     transition-all duration-200 text-sm
   `;
 
@@ -53,7 +53,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRefCb}
-      className="relative py-24 lg:py-32 bg-[#0D1220] overflow-hidden"
+      className="relative py-20 lg:py-28 bg-canvas overflow-hidden"
     >
       {/* Ambient glows */}
       <div className="absolute left-0 bottom-0 w-[600px] h-[400px] rounded-full bg-teal/5 blur-[140px] pointer-events-none" />
@@ -82,7 +82,7 @@ export default function ContactSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 }}
-              className="text-display-md font-extrabold text-text-primary mb-4"
+              className="text-display-md font-bold text-text-primary mb-4"
             >
               Ready to grow?{" "}
               <span className="gradient-text-teal">Let's talk.</span>

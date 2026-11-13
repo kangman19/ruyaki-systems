@@ -22,9 +22,9 @@ function PathParticle({ progress, pathRef }: { progress: number; pathRef: React.
 
   return (
     <>
-      <circle cx={point.x} cy={point.y} r={20} fill="none" stroke="rgba(201,169,110,0.1)" strokeWidth={1} />
-      <circle cx={point.x} cy={point.y} r={11} fill="none" stroke="rgba(201,169,110,0.25)" strokeWidth={1.5} />
-      <circle cx={point.x} cy={point.y} r={4} fill="#C9A96E" filter="url(#gold-glow)" />
+      <circle cx={point.x} cy={point.y} r={20} fill="none" stroke="rgba(0,206,200,0.1)" strokeWidth={1} />
+      <circle cx={point.x} cy={point.y} r={11} fill="none" stroke="rgba(0,206,200,0.25)" strokeWidth={1.5} />
+      <circle cx={point.x} cy={point.y} r={4} fill="#00CEC8" filter="url(#gold-glow)" />
     </>
   );
 }
@@ -108,7 +108,7 @@ export default function HeroSection() {
         const rect = goldEl.getBoundingClientRect();
         goldEl.querySelectorAll<HTMLElement>("[data-char]").forEach((charEl) => {
           const charRect = charEl.getBoundingClientRect();
-          charEl.style.backgroundImage = "linear-gradient(135deg, #C9A96E, #E8C87A, #D4956A)";
+          charEl.style.backgroundImage = "linear-gradient(135deg, #00CEC8, #5EEAE4, #B6F5F2)";
           charEl.style.backgroundSize = `${rect.width}px ${rect.height}px`;
           charEl.style.backgroundPosition = `-${charRect.left - rect.left}px -${charRect.top - rect.top}px`;
           charEl.style.webkitBackgroundClip = "text";
@@ -177,7 +177,7 @@ export default function HeroSection() {
 
       {/* Grid background */}
       <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `linear-gradient(rgba(42,42,53,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(42,42,53,0.4) 1px, transparent 1px)`,
+        backgroundImage: `linear-gradient(rgba(148,163,184,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.4) 1px, transparent 1px)`,
         backgroundSize: "60px 60px",
       }} />
 
@@ -200,14 +200,14 @@ export default function HeroSection() {
             <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
           <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(201,169,110,0)" />
-            <stop offset="30%" stopColor="rgba(201,169,110,0.5)" />
-            <stop offset="70%" stopColor="rgba(212,149,106,0.4)" />
-            <stop offset="100%" stopColor="rgba(212,149,106,0)" />
+            <stop offset="0%" stopColor="rgba(0,206,200,0)" />
+            <stop offset="30%" stopColor="rgba(0,206,200,0.5)" />
+            <stop offset="70%" stopColor="rgba(94,234,228,0.4)" />
+            <stop offset="100%" stopColor="rgba(94,234,228,0)" />
           </linearGradient>
         </defs>
 
-        <path d={PATH_D} fill="none" stroke="rgba(42,42,53,0.7)" strokeWidth={1} strokeDasharray="6 14" />
+        <path d={PATH_D} fill="none" stroke="rgba(148,163,184,0.7)" strokeWidth={1} strokeDasharray="6 14" />
 
         <motion.path
           d={PATH_D} fill="none" stroke="url(#path-gradient)" strokeWidth={2.5}
@@ -233,7 +233,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.7, type: "spring", stiffness: 60, damping: 20 }}
-          className="text-display-xl font-extrabold text-text-primary leading-[1.0] tracking-tight mb-6"
+          className="text-display-xl font-bold text-text-primary leading-[1.0] tracking-tight mb-6"
         >
           Your business deserves a{" "}
           <span className="gradient-text-gold">website that</span>

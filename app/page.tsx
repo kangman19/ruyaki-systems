@@ -23,7 +23,7 @@ export default function HomePage() {
 
 function HomeCTASection() {
   return (
-    <section className="relative py-28 lg:py-36 bg-canvas overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-canvas overflow-hidden">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-gold/[0.06] blur-[140px]" />
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -32,7 +32,7 @@ function HomeCTASection() {
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/5">
           <span className="font-mono text-label text-gold uppercase tracking-wider">Ready to start?</span>
         </div>
-        <h2 className="text-display-lg font-extrabold text-text-primary mb-6">
+        <h2 className="text-display-lg font-bold text-text-primary mb-6">
           Let&apos;s build something{" "}
           <span className="gradient-text-gold">your customers will love.</span>
         </h2>
@@ -41,7 +41,7 @@ function HomeCTASection() {
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-canvas font-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-gold-md hover:scale-[1.02] group"
+          className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] font-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-gold-md hover:scale-[1.02] group"
         >
           Start a conversation
           <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />

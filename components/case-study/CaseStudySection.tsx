@@ -18,7 +18,7 @@ function BeforeMockup() {
           http://www.mybusiness.co.ke/home.html
         </div>
       </div>
-      <div className="bg-[#f5f0e8] h-full overflow-hidden text-gray-800 text-xs">
+      <div className="bg-[#F1F5F9] h-full overflow-hidden text-gray-800 text-xs">
         <div className="bg-[#003366] text-white flex items-center justify-between px-3 py-2">
           <span className="font-bold text-sm" style={{ fontFamily: "Georgia, serif" }}>ALPHA TRADERS LTD</span>
           <div className="flex gap-3 text-[10px] text-blue-200">
@@ -62,57 +62,57 @@ function BeforeMockup() {
 
 function AfterMockup() {
   return (
-    <div className="relative w-full h-full bg-[#0A0A0B] rounded-xl overflow-hidden select-none">
-      <div className="bg-[#111113] px-4 py-2.5 flex items-center gap-3 border-b border-[#1E1E24]">
+    <div className="relative w-full h-full bg-[#0E131D] rounded-xl overflow-hidden select-none">
+      <div className="bg-[#171C25] px-4 py-2.5 flex items-center gap-3 border-b border-[rgba(255,255,255,0.10)]">
         <div className="flex gap-1.5">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#1E1E24]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#1E1E24]" />
-          <div className="w-2.5 h-2.5 rounded-full bg-[#1E1E24]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[rgba(255,255,255,0.10)]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[rgba(255,255,255,0.10)]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[rgba(255,255,255,0.10)]" />
         </div>
-        <div className="flex-1 bg-[#0A0A0B] rounded-lg text-xs px-3 py-1 text-[#4A4540] flex items-center gap-1.5 border border-[#1E1E24]">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#C9A96E]/60 shrink-0" />
-          <span className="text-[#8A8078]">alphatraders.co.ke</span>
+        <div className="flex-1 bg-[#0E131D] rounded-lg text-xs px-3 py-1 text-[#64748B] flex items-center gap-1.5 border border-[rgba(255,255,255,0.10)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#00CEC8]/60 shrink-0" />
+          <span className="text-[#94A3B8]">alphatraders.co.ke</span>
         </div>
-        <div className="text-[10px] font-mono text-[#C9A96E] bg-[#C9A96E]/10 px-2 py-0.5 rounded">0.4s</div>
+        <div className="text-[10px] font-mono text-[#00CEC8] bg-[#00CEC8]/10 px-2 py-0.5 rounded">0.4s</div>
       </div>
       <div className="h-[calc(100%-36px)] overflow-hidden">
-        <div className="relative bg-gradient-to-br from-[#0A0A0B] via-[#111113] to-[#18181C] px-5 py-6">
-          <div className="absolute top-2 right-4 w-24 h-24 rounded-full bg-[#C9A96E]/5 blur-2xl" />
-          <div className="inline-flex items-center gap-1.5 mb-2 px-2.5 py-1 rounded-full bg-[#C9A96E]/10 border border-[#C9A96E]/20">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#C9A96E] animate-pulse" />
-            <span className="text-[9px] font-mono text-[#C9A96E] uppercase tracking-wide">Taking on new projects</span>
+        <div className="relative bg-gradient-to-br from-[#0E131D] via-[#171C25] to-[#1E2430] px-5 py-6">
+          <div className="absolute top-2 right-4 w-24 h-24 rounded-full bg-[#00CEC8]/5 blur-2xl" />
+          <div className="inline-flex items-center gap-1.5 mb-2 px-2.5 py-1 rounded-full bg-[#00CEC8]/10 border border-[#00CEC8]/20">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#00CEC8] animate-pulse" />
+            <span className="text-[9px] font-mono text-[#00CEC8] uppercase tracking-wide">Taking on new projects</span>
           </div>
           <h2 className="text-sm font-bold text-white leading-tight mb-1.5">
-            Quality Products,{" "}<span className="text-[#C9A96E]">Delivered Fast.</span>
+            Quality Products,{" "}<span className="text-[#00CEC8]">Delivered Fast.</span>
           </h2>
-          <p className="text-[9px] text-[#8A8078] mb-3 leading-relaxed">Over 5,000 items in stock. Order before 2pm, receive tomorrow.</p>
+          <p className="text-[9px] text-[#94A3B8] mb-3 leading-relaxed">Over 5,000 items in stock. Order before 2pm, receive tomorrow.</p>
           <div className="flex gap-2">
-            <div className="px-3 py-1.5 bg-[#C9A96E] text-[#0A0A0B] text-[9px] font-bold rounded-lg">Shop Now →</div>
-            <div className="px-3 py-1.5 border border-[#1E1E24] text-[#8A8078] text-[9px] rounded-lg">View Catalog</div>
+            <div className="px-3 py-1.5 bg-[#00CEC8] text-[#0E131D] text-[9px] font-bold rounded-lg">Shop Now →</div>
+            <div className="px-3 py-1.5 border border-[rgba(255,255,255,0.10)] text-[#94A3B8] text-[9px] rounded-lg">View Catalog</div>
           </div>
         </div>
-        <div className="flex border-t border-[#1E1E24]">
+        <div className="flex border-t border-[rgba(255,255,255,0.10)]">
           {[{ label: "Products", val: "5,200+" }, { label: "Orders/day", val: "340" }, { label: "Rating", val: "4.9★" }].map((s) => (
-            <div key={s.label} className="flex-1 py-2 px-3 text-center border-r last:border-r-0 border-[#1E1E24]">
+            <div key={s.label} className="flex-1 py-2 px-3 text-center border-r last:border-r-0 border-[rgba(255,255,255,0.10)]">
               <div className="text-xs font-bold text-white">{s.val}</div>
-              <div className="text-[8px] text-[#4A4540]">{s.label}</div>
+              <div className="text-[8px] text-[#64748B]">{s.label}</div>
             </div>
           ))}
         </div>
         <div className="grid grid-cols-3 gap-2 p-3">
           {[{ name: "Steel Pipes", price: "KSh 2,400" }, { name: "Cement Bags", price: "KSh 890" }, { name: "Roofing Sheets", price: "KSh 1,200" }].map((p) => (
-            <div key={p.name} className="bg-[#111113] rounded-lg p-2 border border-[#1E1E24]">
-              <div className="w-full h-10 rounded-md bg-[#1E1E24] mb-1.5" />
+            <div key={p.name} className="bg-[#171C25] rounded-lg p-2 border border-[rgba(255,255,255,0.10)]">
+              <div className="w-full h-10 rounded-md bg-[rgba(255,255,255,0.10)] mb-1.5" />
               <div className="text-[8px] font-semibold text-white truncate">{p.name}</div>
-              <div className="text-[8px] text-[#C9A96E] font-mono">{p.price}</div>
+              <div className="text-[8px] text-[#00CEC8] font-mono">{p.price}</div>
             </div>
           ))}
         </div>
       </div>
       <div className="absolute bottom-2 right-2 flex flex-col gap-1">
-        <div className="bg-[#C9A96E]/10 border border-[#C9A96E]/30 text-[#C9A96E] text-[9px] font-mono px-2 py-0.5 rounded backdrop-blur-sm">Load: 0.4s ✓ FAST</div>
-        <div className="bg-[#C9A96E]/10 border border-[#C9A96E]/30 text-[#C9A96E] text-[9px] font-mono px-2 py-0.5 rounded backdrop-blur-sm">Mobile: PERFECT</div>
-        <div className="bg-[#C9A96E]/10 border border-[#C9A96E]/30 text-[#C9A96E] text-[9px] font-mono px-2 py-0.5 rounded backdrop-blur-sm">Conv: 3.4% ↑</div>
+        <div className="bg-[#00CEC8]/10 border border-[#00CEC8]/30 text-[#00CEC8] text-[9px] font-mono px-2 py-0.5 rounded backdrop-blur-sm">Load: 0.4s ✓ FAST</div>
+        <div className="bg-[#00CEC8]/10 border border-[#00CEC8]/30 text-[#00CEC8] text-[9px] font-mono px-2 py-0.5 rounded backdrop-blur-sm">Mobile: PERFECT</div>
+        <div className="bg-[#00CEC8]/10 border border-[#00CEC8]/30 text-[#00CEC8] text-[9px] font-mono px-2 py-0.5 rounded backdrop-blur-sm">Conv: 3.4% ↑</div>
       </div>
     </div>
   );
@@ -159,7 +159,7 @@ export default function CaseStudySection() {
   };
 
   return (
-    <section id="work" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-canvas">
+    <section id="work" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-canvas">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[2px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -171,7 +171,7 @@ export default function CaseStudySection() {
             <span className="font-mono text-label text-gold uppercase tracking-wider">Real Transformations</span>
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4">
+            className="text-display-lg font-bold text-text-primary mb-4">
             From forgotten to{" "}<span className="gradient-text-gold">front-runner.</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
@@ -214,7 +214,7 @@ export default function CaseStudySection() {
               <div className="absolute top-0 bottom-0 w-0.5 bg-gold shadow-gold-sm z-20" style={{ left: `${sliderX}%` }}>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-canvas border-2 border-gold shadow-gold-md flex items-center justify-center">
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M5 9H13M5 9L8 6M5 9L8 12M13 9L10 6M13 9L10 12" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 9H13M5 9L8 6M5 9L8 12M13 9L10 6M13 9L10 12" stroke="#00CEC8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>

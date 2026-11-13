@@ -50,12 +50,12 @@ const SERVICES = [
   },
 ];
 
-/* ─── Reusable gold feature bullet ──────────────────────────── */
+/* ─── Reusable cyan-glow feature bullet ──────────────────────────── */
 
 function FeaturePill({ text }: { text: string }) {
   return (
-    <li className="flex items-center gap-3 rounded-2xl border border-amber-500/10 bg-[#1c1b17] px-4 py-3.5 text-sm font-semibold text-amber-200/75 hover:bg-neutral-800/60 hover:border-amber-500/20 transition-all duration-200 cursor-default">
-      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400" aria-hidden />
+    <li className="flex items-center gap-3 rounded-md border border-gold/20 bg-gold/[0.06] px-4 py-3.5 text-sm font-semibold text-gold-bright hover:bg-gold/10 hover:border-gold/40 hover:shadow-gold-sm transition-all duration-200 cursor-default">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_8px_rgba(0,206,200,0.8)]" aria-hidden />
       {text}
     </li>
   );
@@ -81,7 +81,7 @@ function HeroBlock() {
         initial={{ opacity: 0, y: 24 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 60, damping: 20 }}
-        className="text-display-lg font-extrabold text-text-primary mb-5 leading-[1.06]"
+        className="text-display-lg font-bold text-text-primary mb-5 leading-[1.06]"
       >
         Software engineered to run your{" "}
         <span className="gradient-text-gold">business automatically.</span>
@@ -117,12 +117,12 @@ function CardsBlock() {
             className="rounded-3xl border border-border bg-surface p-8 bento-border flex flex-col"
           >
             {/* Number badge */}
-            <span className="font-mono text-label text-gold/60 tracking-widest mb-5 block">
+            <span className="font-mono text-label text-gold tracking-widest mb-5 block [text-shadow:0_0_12px_rgba(0,206,200,0.5)]">
               {svc.number}
             </span>
 
             {/* Title */}
-            <h2 className="text-xl font-extrabold text-text-primary leading-snug mb-3">
+            <h2 className="text-xl font-bold text-text-primary leading-snug mb-3">
               {svc.title}
             </h2>
 
@@ -155,7 +155,7 @@ function CTABlock() {
   return (
     <section
       ref={ref}
-      className="relative py-28 lg:py-36 bg-canvas overflow-hidden"
+      className="relative py-20 lg:py-28 bg-canvas overflow-hidden"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-gold/[0.06] blur-[140px]" />
@@ -176,7 +176,7 @@ function CTABlock() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 60, damping: 20 }}
-          className="text-display-lg font-extrabold text-text-primary mb-5"
+          className="text-display-lg font-bold text-text-primary mb-5"
         >
           Ready to build your website or{" "}
           <span className="gradient-text-gold">automate your operations?</span>
@@ -200,7 +200,7 @@ function CTABlock() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-canvas font-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-gold-md hover:scale-[1.02] group"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] font-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-gold-md hover:scale-[1.02] group"
           >
             Let&apos;s build something together
             <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />

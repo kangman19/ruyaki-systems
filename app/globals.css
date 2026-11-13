@@ -1,26 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-jakarta: "Space Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 
-  /* Graphite + Gold palette */
-  --gold: #C9A96E;
-  --gold-bright: #E8C87A;
-  --gold-dim: #9A7A48;
-  --sage: #7B9E87;
-  --amber: #D4956A;
-  --canvas: #0A0A0B;
-  --surface: #111113;
+  /* Titanium Slate palette (the --gold names now hold the teal accent) */
+  --gold: #00CEC8;
+  --gold-bright: #5EEAE4;
+  --gold-dim: #009E99;
+  --sage: #5EEAE4;
+  --amber: #94A3B8;
+  --canvas: #0E131D;
+  --surface: #171C25;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
+  background-color: var(--canvas);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,20 +29,20 @@ html {
 
 body {
   background-color: var(--canvas);
-  color: #F2EDE6;
+  color: #F1F5F9;
   font-family: var(--font-jakarta);
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(201,169,110,0.25);
-  color: #E8C87A;
+  background: rgba(0,206,200,0.25);
+  color: #5EEAE4;
 }
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--canvas); }
-::-webkit-scrollbar-thumb { background: #2A2A35; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #3A3A48; }
+::-webkit-scrollbar-thumb { background: #343944; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #4A5060; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -53,20 +54,20 @@ body {
 
 /* Gradient text utilities */
 .gradient-text-gold {
-  background: linear-gradient(135deg, #C9A96E, #E8C87A, #D4956A);
+  background: linear-gradient(135deg, #00CEC8, #5EEAE4, #B6F5F2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .gradient-text-sage {
-  background: linear-gradient(135deg, #7B9E87, #9BBBA6);
+  background: linear-gradient(135deg, #5EEAE4, #99F0EC);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* Glow text */
-.text-glow-gold { text-shadow: 0 0 30px rgba(201,169,110,0.4); }
+.text-glow-gold { text-shadow: 0 0 30px rgba(0,206,200,0.4); }
 
 /* Bento card gradient border */
 .bento-border { position: relative; }
@@ -76,7 +77,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(201,169,110,0.2), transparent, rgba(123,158,135,0.15));
+  background: linear-gradient(135deg, rgba(0,206,200,0.2), transparent, rgba(94,234,228,0.15));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -101,7 +102,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(201,169,110,0.015) 50%, transparent 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,206,200,0.015) 50%, transparent 100%);
   background-size: 100% 4px;
   pointer-events: none;
   animation: scanLine 3s linear infinite;
@@ -169,7 +170,7 @@ html[data-motion="off"] [class*="backdrop-blur"] {
 }
 html[data-motion="lite"] header [class*="backdrop-blur"],
 html[data-motion="lite"] .fixed[class*="backdrop-blur"] {
-  background-color: rgba(10, 10, 11, 0.97) !important;
+  background-color: rgba(14,19,29, 0.97) !important;
 }
 html[data-motion="lite"] .noise-overlay::after { display: none; }
 html[data-motion="lite"],

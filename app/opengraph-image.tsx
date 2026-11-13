@@ -13,14 +13,14 @@ export default function OGImage() {
       <div
         style={{
           fontSize: 48,
-          background: "#0A0A0B",
+          background: "#0E131D",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          color: "#C9A96E",
+          color: "#00CEC8",
           fontFamily: "system-ui, -apple-system, sans-serif",
           fontWeight: "bold",
           position: "relative",
@@ -35,7 +35,7 @@ export default function OGImage() {
             left: 0,
             right: 0,
             height: 4,
-            background: "linear-gradient(to right, transparent, #C9A96E, transparent)",
+            background: "linear-gradient(to right, transparent, #00CEC8, transparent)",
           }}
         />
         <div
@@ -45,7 +45,7 @@ export default function OGImage() {
             left: 0,
             right: 0,
             height: 2,
-            background: "linear-gradient(to right, #C9A96E, transparent)",
+            background: "linear-gradient(to right, #00CEC8, transparent)",
           }}
         />
 
@@ -64,7 +64,7 @@ export default function OGImage() {
               fontSize: 72,
               fontWeight: "900",
               marginBottom: 24,
-              color: "#E8C87A",
+              color: "#5EEAE4",
             }}
           >
             Ruyaki Systems
@@ -103,7 +103,7 @@ export default function OGImage() {
             width: 250,
             height: 250,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0,206,200,0.08) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
         />

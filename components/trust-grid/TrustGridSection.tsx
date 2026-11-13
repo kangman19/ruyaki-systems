@@ -16,9 +16,9 @@ function BentoCard({ icon: Icon, title, description, accentColor, size = "normal
   const [isHovered, setIsHovered] = useState(false);
 
   const colorMap = {
-    gold:  { icon: "text-gold",  iconBg: "bg-gold/10 border-gold/20",  glow: "rgba(201,169,110,0.12)", glowBorder: "rgba(201,169,110,0.45)", tag: "text-gold bg-gold/10 border-gold/20"  },
-    sage:  { icon: "text-sage",  iconBg: "bg-sage/10 border-sage/20",  glow: "rgba(123,158,135,0.12)", glowBorder: "rgba(123,158,135,0.45)", tag: "text-sage bg-sage/10 border-sage/20"  },
-    amber: { icon: "text-amber", iconBg: "bg-amber/10 border-amber/20", glow: "rgba(212,149,106,0.12)", glowBorder: "rgba(212,149,106,0.45)", tag: "text-amber bg-amber/10 border-amber/20" },
+    gold:  { icon: "text-gold",  iconBg: "bg-gold/10 border-gold/20",  glow: "rgba(0,206,200,0.12)", glowBorder: "rgba(0,206,200,0.45)", tag: "text-gold bg-gold/10 border-gold/20"  },
+    sage:  { icon: "text-sage",  iconBg: "bg-sage/10 border-sage/20",  glow: "rgba(94,234,228,0.12)", glowBorder: "rgba(94,234,228,0.45)", tag: "text-sage bg-sage/10 border-sage/20"  },
+    amber: { icon: "text-amber", iconBg: "bg-amber/10 border-amber/20", glow: "rgba(148,163,184,0.12)", glowBorder: "rgba(148,163,184,0.45)", tag: "text-amber bg-amber/10 border-amber/20" },
   };
   const c = colorMap[accentColor];
 
@@ -28,7 +28,7 @@ function BentoCard({ icon: Icon, title, description, accentColor, size = "normal
       transition={{ delay, duration: 0.5, type: "spring", stiffness: 80, damping: 20 }}
       ref={cardRef} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
       className={`relative rounded-3xl border border-border overflow-hidden transition-all duration-300 group ${size === "wide" ? "lg:col-span-2" : ""} ${size === "tall" ? "lg:row-span-2" : ""}`}
-      style={{ background: isHovered ? `radial-gradient(280px circle at ${pos.x}px ${pos.y}px, ${c.glow}, transparent 70%), #111113` : "#111113" }}
+      style={{ background: isHovered ? `radial-gradient(280px circle at ${pos.x}px ${pos.y}px, ${c.glow}, transparent 70%), #171C25` : "#171C25" }}
     >
       <div className="absolute inset-0 rounded-3xl transition-opacity duration-300 pointer-events-none"
         style={{ opacity: isHovered ? 1 : 0, background: `radial-gradient(200px circle at ${pos.x}px ${pos.y}px, ${c.glowBorder}, transparent 60%)`,
@@ -101,7 +101,7 @@ export default function TrustGridSection() {
   const [sectionRefCb, inView] = useInView(0.1);
 
   return (
-    <section id="services" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-canvas">
+    <section id="services" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-canvas">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl mb-16">
@@ -111,7 +111,7 @@ export default function TrustGridSection() {
             <span className="font-mono text-label text-gold uppercase tracking-wider">Built Right, From the Start</span>
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4">
+            className="text-display-lg font-bold text-text-primary mb-4">
             Everything your business{" "}<span className="gradient-text-gold">needs to grow online.</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
@@ -124,9 +124,9 @@ export default function TrustGridSection() {
           <BentoCard icon={Shield} title="Airtight Security" description="Built on an isolated, serverless global architecture. By serving pre-compiled static HTML instead of running a vulnerable database backend, your site is implicitly protected against standard server exploits, malware injection, and common security threats out of the box." accentColor="gold" size="wide" tag="Always On" delay={0.1} inView={inView}><SecurityBadges /></BentoCard>
           <BentoCard icon={Smartphone} title="Mobile-First Engine" description="Over 70% of your customers browse on their phones. Every site we build works flawlessly on all screen sizes, from a small Nokia to a wide desktop." accentColor="sage" tag="Responsive" delay={0.2} inView={inView}>
             <div className="mt-3 space-y-2">
-              <ScoreBar label="Performance" score={98} color="#C9A96E" />
-              <ScoreBar label="Accessibility" score={100} color="#7B9E87" />
-              <ScoreBar label="Best Practices" score={96} color="#D4956A" />
+              <ScoreBar label="Performance" score={98} color="#00CEC8" />
+              <ScoreBar label="Accessibility" score={100} color="#5EEAE4" />
+              <ScoreBar label="Best Practices" score={96} color="#94A3B8" />
             </div>
           </BentoCard>
           <BentoCard icon={Clock} title="Always Online, Never Down" description="We deploy on enterprise-grade infrastructure with redundancy built in ensuring high availability and uptime." accentColor="sage" tag="99.9% SLA" delay={0.3} inView={inView}><UptimeGrid /></BentoCard>

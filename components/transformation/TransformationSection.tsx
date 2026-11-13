@@ -18,12 +18,12 @@ export default function TransformationSection() {
   const biz = TRANSFORMATIONS.find((b) => b.id === activeId)!;
 
   return (
-    <section id="transform" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-canvas">
+    <section id="transform" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-canvas">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sage/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-14">
           <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4">
+            className="text-display-lg font-bold text-text-primary mb-4">
             Pick a business like yours.{" "}<span className="gradient-text-gold">See what changes.</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
@@ -40,7 +40,7 @@ export default function TransformationSection() {
             return (
               <button key={b.id} onClick={() => setActiveId(b.id)}
                 className={`flex items-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
-                  b.id === activeId ? "bg-gold text-canvas border-gold shadow-gold-sm" : "bg-surface border-border text-text-muted hover:border-border-bright hover:text-text-secondary"
+                  b.id === activeId ? "bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] border-gold shadow-gold-sm" : "bg-surface border-border text-text-muted hover:border-border-bright hover:text-text-secondary"
                 }`}>
                 {Icon && <Icon size={16} className="shrink-0" />}
                 {b.label}
@@ -75,7 +75,7 @@ export default function TransformationSection() {
                   <p className="whitespace-nowrap text-right">
                     <span className="text-text-muted line-through text-sm">{m.before}</span>
                     <span className="mx-2 text-gold">→</span>
-                    <span className="text-xl font-extrabold text-gold">{m.after}</span>
+                    <span className="text-xl font-bold text-gold">{m.after}</span>
                   </p>
                 </motion.div>
               ))}

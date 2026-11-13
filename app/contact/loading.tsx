@@ -1,7 +1,7 @@
 export default function ContactLoading() {
   return (
     <main className="min-h-screen bg-canvas pt-16">
-      <section className="py-24 lg:py-32">
+      <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 animate-pulse">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
             {/* Left column skeleton */}

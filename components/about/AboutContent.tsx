@@ -29,7 +29,7 @@ export default function AboutContent() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.7, type: "spring", stiffness: 60, damping: 20 }}
-        className="text-display-lg font-extrabold text-text-primary mb-10 leading-tight"
+        className="text-display-lg font-bold text-text-primary mb-10 leading-tight"
       >
         Websites built to match{" "}
         <span className="gradient-text-gold">your ambition.</span>

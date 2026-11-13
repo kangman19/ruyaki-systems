@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px;background:#fff">
           <div style="margin-bottom:28px">
-            <span style="display:inline-block;background:#C9A96E;color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px">New Lead</span>
+            <span style="display:inline-block;background:#00CEC8;color:#041A19;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px">New Lead</span>
           </div>
           <h2 style="margin:0 0 8px;font-size:22px;font-weight:700;color:#111">Project Enquiry</h2>
           <p style="margin:0 0 28px;font-size:14px;color:#666">Submitted via ruyaki.co.ke contact form</p>

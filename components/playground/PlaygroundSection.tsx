@@ -48,7 +48,7 @@ function Mock({ kind }: { kind: BuildType["mock"] }) {
             {[["Today","KSh 84k"],["Orders","37"],["New","+12"]].map(([l, v]) => (
               <div key={l} className="rounded-xl2 bg-surface-2 p-2 text-center">
                 <p className="text-[9px] font-bold uppercase text-text-muted">{l}</p>
-                <p className="text-sm font-extrabold text-gold">{v}</p>
+                <p className="text-sm font-bold text-gold">{v}</p>
               </div>
             ))}
           </div>
@@ -75,7 +75,7 @@ function MockupBefore() {
   return (
     <div
       className="h-full w-full overflow-hidden rounded-xl border-2 border-gray-400 select-none pointer-events-none"
-      style={{ background: "#f5f0e8", fontFamily: "Times New Roman, serif", color: "#333" }}
+      style={{ background: "#F1F5F9", fontFamily: "Times New Roman, serif", color: "#333" }}
     >
       {/* Old-school blue nav bar */}
       <div className="flex items-center justify-between border-b-2 border-[#000088] bg-[#003399] px-3 py-2">
@@ -151,7 +151,7 @@ function MockupAfter() {
           <div className="h-1 w-1 rounded-full bg-slate-400" />
           <span className="text-[8px] font-semibold uppercase tracking-widest text-slate-600">Trusted across 80+ businesses</span>
         </div>
-        <h3 className="mb-1.5 text-xs font-extrabold leading-tight tracking-tight text-slate-900">
+        <h3 className="mb-1.5 text-xs font-bold leading-tight tracking-tight text-slate-900">
           Premium Products,{" "}<span className="text-slate-600">Delivered Fast.</span>
         </h3>
         <p className="mb-3.5 text-[8px] font-normal leading-relaxed text-slate-500">5,000+ items in stock. Order before 2pm, delivered tomorrow.</p>
@@ -199,7 +199,7 @@ export default function PlaygroundSection() {
   };
 
   return (
-    <section id="build" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-surface">
+    <section id="build" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-surface">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -208,7 +208,7 @@ export default function PlaygroundSection() {
             <span className="font-mono text-label text-gold uppercase tracking-wider">The playground</span>
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4">
+            className="text-display-lg font-bold text-text-primary mb-4">
             What could we build{" "}<span className="gradient-text-gold">for you?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
@@ -223,14 +223,14 @@ export default function PlaygroundSection() {
           {BUILDS.map((b) => (
             <button key={b.id} onClick={() => handleTabChange(b.id)}
               className={`rounded-2xl px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
-                b.id === activeId ? "bg-gold text-canvas border-gold shadow-gold-sm" : "bg-surface-2 border-border text-text-muted hover:border-border-bright hover:text-text-secondary"
+                b.id === activeId ? "bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] border-gold shadow-gold-sm" : "bg-surface-2 border-border text-text-muted hover:border-border-bright hover:text-text-secondary"
               }`}>
               {b.label}
             </button>
           ))}
           <button onClick={() => handleTabChange("mockup")}
             className={`rounded-2xl px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
-              isMockup ? "bg-gold text-canvas border-gold shadow-gold-sm" : "bg-surface-2 border-border text-text-muted hover:border-border-bright hover:text-text-secondary"
+              isMockup ? "bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] border-gold shadow-gold-sm" : "bg-surface-2 border-border text-text-muted hover:border-border-bright hover:text-text-secondary"
             }`}>
             Mockup
           </button>
@@ -244,7 +244,7 @@ export default function PlaygroundSection() {
               className="grid items-center gap-10 lg:grid-cols-2">
               {/* Left: copy */}
               <div className="order-2 lg:order-1">
-                <h3 className="text-display-md font-extrabold text-text-primary">See the transformation instantly.</h3>
+                <h3 className="text-display-md font-bold text-text-primary">See the transformation instantly.</h3>
                 <p className="mt-3 text-lg text-text-secondary">
                   We turn slow, outdated designs into fast, premium business tools. Use the toggle to see a live before and after comparison.
                 </p>
@@ -298,7 +298,7 @@ export default function PlaygroundSection() {
               transition={{ duration: 0.3 }}
               className="grid items-center gap-10 lg:grid-cols-2">
               <div className="order-2 lg:order-1">
-                <h3 className="text-display-md font-extrabold text-text-primary">{build!.headline}</h3>
+                <h3 className="text-display-md font-bold text-text-primary">{build!.headline}</h3>
                 <p className="mt-3 text-lg text-text-secondary">{build!.forYou}</p>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {build!.features.map((f) => (

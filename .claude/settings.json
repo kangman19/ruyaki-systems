@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(sed -i \"s#const rep=\\(a,b\\)=>{#const crlf=s.includes\\('\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\n'\\);const rep=\\(a,b\\)=>{if\\(crlf\\){a=a.replace\\(/\\\\\\\\\\\\\\\\n/g,'\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\n'\\);b=b.replace\\(/\\\\\\\\\\\\\\\\n/g,'\\\\\\\\\\\\\\\\r\\\\\\\\\\\\\\\\n'\\);}#\" /tmp/cfg.js)",
+      "Bash(node /tmp/cfg.js)",
+      "Bash(node \"C:/Users/kang/AppData/Local/Temp/claude/3745e990ba33deb8/53d62b12-7f26-40fd-83e4-b5e0edc4505b/scratchpad/cfg.js\")",
+      "Bash(npx tailwindcss *)",
+      "Bash(awk -F: '{print $1}')"
     ]
   }
 }

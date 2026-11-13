@@ -10,7 +10,7 @@ export default function ProjectStoriesSection() {
   const project = PROJECTS.find((p) => p.id === activeId)!;
 
   return (
-    <section id="projects" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-surface">
+    <section id="projects" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-surface">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sage/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-14">
@@ -20,7 +20,7 @@ export default function ProjectStoriesSection() {
             <span className="font-mono text-label text-sage uppercase tracking-wider">Real stories, honest labels</span>
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4">
+            className="text-display-lg font-bold text-text-primary mb-4">
             What actually changed for the{" "}<span className="gradient-text-gold">businesses we work with</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
@@ -37,7 +37,7 @@ export default function ProjectStoriesSection() {
               return (
                 <button key={p.id} onClick={() => setActiveId(p.id)}
                   className={`rounded-2xl p-5 text-left transition-all duration-300 border ${
-                    active ? "bg-gold text-canvas border-gold shadow-gold-sm" : "bg-surface-2 border-border hover:border-border-bright hover:-translate-y-0.5"
+                    active ? "bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] border-gold shadow-gold-sm" : "bg-surface-2 border-border hover:border-border-bright hover:-translate-y-0.5"
                   }`}>
                   <div className="flex items-center justify-between gap-3">
                     <p className="font-bold text-lg">{p.name}</p>
@@ -65,7 +65,7 @@ export default function ProjectStoriesSection() {
                   {([["The problem", project.problem], ["What we did", project.solution], ["What changed", project.outcome]] as [string, string][]).map(([label, text], i) => (
                     <div key={label} className="grid gap-2 sm:grid-cols-[150px_1fr] sm:gap-6">
                       <p className="flex items-start gap-2 font-bold text-gold">
-                        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/15 text-xs font-extrabold text-gold">{i + 1}</span>
+                        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/15 text-xs font-bold text-gold">{i + 1}</span>
                         {label}
                       </p>
                       <p className="leading-relaxed text-text-secondary">{text}</p>

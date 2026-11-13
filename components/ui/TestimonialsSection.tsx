@@ -163,7 +163,7 @@ export default function TestimonialsSection() {
     <section
       id="about"
       ref={sectionRefCb}
-      className="relative py-24 lg:py-32 bg-canvas overflow-hidden"
+      className="relative py-20 lg:py-28 bg-canvas overflow-hidden"
     >
       {/* Ambient background */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-indigo/5 blur-[120px] pointer-events-none" />
@@ -189,7 +189,7 @@ export default function TestimonialsSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4"
+            className="text-display-lg font-bold text-text-primary mb-4"
           >
             Don't take our word for it.{" "}
             <span className="gradient-text-warm">Take theirs.</span>

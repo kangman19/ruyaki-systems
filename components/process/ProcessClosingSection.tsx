@@ -12,7 +12,7 @@ export default function ProcessClosingSection() {
   const [sectionRefCb, inView] = useInView(0.1);
 
   return (
-    <section ref={sectionRefCb} className="relative py-24 lg:py-32 bg-canvas overflow-hidden">
+    <section ref={sectionRefCb} className="relative py-20 lg:py-28 bg-canvas overflow-hidden">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-amber/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function ProcessClosingSection() {
               <p className="font-mono text-label text-text-muted uppercase tracking-widest mb-2">
                 Development Phase, Starting Week 2
               </p>
-              <h3 className="text-display-md font-extrabold text-text-primary">
+              <h3 className="text-display-md font-bold text-text-primary">
                 A typical week, once we&apos;re building
               </h3>
               <p className="mt-4 text-text-secondary">

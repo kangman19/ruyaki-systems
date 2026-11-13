@@ -172,7 +172,7 @@ function ShowcaseMockup() {
           className="flex flex-1 items-center gap-1.5 rounded-md px-2 py-0.5 text-[9px]"
           style={{ background: "#071529", color: "#6B8FAF" }}
         >
-          <div className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#39FF14" }} />
+          <div className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#00CEC8" }} />
           mybusiness.co.ke
         </div>
         <span
@@ -190,7 +190,7 @@ function ShowcaseMockup() {
           className="flex items-center justify-between px-4 py-2"
           style={{ background: "#FFFFFF", borderBottom: "1px solid #E5EBF5" }}
         >
-          <span className="text-[9px] font-extrabold tracking-tight" style={{ color: "#0B1E38" }}>
+          <span className="text-[9px] font-bold tracking-tight" style={{ color: "#0B1E38" }}>
             mybusiness
           </span>
           <div className="flex gap-3">
@@ -213,7 +213,7 @@ function ShowcaseMockup() {
             </span>
           </div>
           <h3
-            className="mb-1.5 text-[11px] font-extrabold leading-tight"
+            className="mb-1.5 text-[11px] font-bold leading-tight"
             style={{ color: "#0B1E38" }}
           >
             Premium Products,{" "}
@@ -246,7 +246,7 @@ function ShowcaseMockup() {
               className="flex-1 py-2 text-center"
               style={{ borderLeft: i > 0 ? "1px solid #E5EBF5" : undefined }}
             >
-              <div className="text-[10px] font-extrabold" style={{ color: "#0B1E38" }}>{v}</div>
+              <div className="text-[10px] font-bold" style={{ color: "#0B1E38" }}>{v}</div>
               <div className="text-[7px]" style={{ color: "#94A3B8" }}>{l}</div>
             </div>
           ))}
@@ -283,18 +283,18 @@ function EcosystemDiagram({ pipeline }: { pipeline: [string, string, string] }) 
           <div
             className="flex items-center gap-4 rounded-2xl px-5 py-4"
             style={{
-              background: "#2C3539",
-              border: "1px solid #39FF14",
-              boxShadow: "0 0 18px rgba(57,255,20,0.08)",
+              background: "#1E2430",
+              border: "1px solid #00CEC8",
+              boxShadow: "0 0 18px rgba(0,206,200,0.08)",
             }}
           >
             <span
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
-              style={{ background: "#39FF14", color: "#0A0A0B" }}
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold"
+              style={{ background: "#00CEC8", color: "#041A19" }}
             >
               {i + 1}
             </span>
-            <p className="text-sm font-semibold leading-snug text-[#F2EDE6]">{step}</p>
+            <p className="text-sm font-semibold leading-snug text-[#F1F5F9]">{step}</p>
           </div>
 
           {i < 2 && (
@@ -303,12 +303,12 @@ function EcosystemDiagram({ pipeline }: { pipeline: [string, string, string] }) 
                 style={{
                   width: 2,
                   height: 20,
-                  background: "linear-gradient(to bottom, #39FF14 60%, transparent)",
+                  background: "linear-gradient(to bottom, #00CEC8 60%, transparent)",
                   opacity: 0.7,
                 }}
               />
               <svg width="14" height="9" viewBox="0 0 14 9" aria-hidden>
-                <polygon points="7,9 0,0 14,0" fill="#39FF14" opacity="0.85" />
+                <polygon points="7,9 0,0 14,0" fill="#00CEC8" opacity="0.85" />
               </svg>
             </div>
           )}
@@ -334,13 +334,13 @@ function RightPanel({ vertical }: { vertical: Vertical }) {
       style={
         isShowcase
           ? { background: "#07111C", borderColor: "#162740", padding: "1.5rem" }
-          : { background: "#0F1A1D", borderColor: "#1E2D31", padding: "2rem" }
+          : { background: "#171C25", borderColor: "rgba(255,255,255,0.12)", padding: "2rem" }
       }
     >
       {/* Panel label */}
       <p
         className="font-mono text-label uppercase tracking-widest mb-6 shrink-0"
-        style={{ color: isShowcase ? "#7BB8FF" : "#39FF14" }}
+        style={{ color: isShowcase ? "#7BB8FF" : "#00CEC8" }}
       >
         {isShowcase ? "Site Preview" : "System Ecosystem"}
       </p>
@@ -358,7 +358,7 @@ function RightPanel({ vertical }: { vertical: Vertical }) {
             className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 opacity-[0.04]"
             style={{
               backgroundImage:
-                "repeating-linear-gradient(0deg,#39FF14 0px,#39FF14 1px,transparent 1px,transparent 20px),repeating-linear-gradient(90deg,#39FF14 0px,#39FF14 1px,transparent 1px,transparent 20px)",
+                "repeating-linear-gradient(0deg,#00CEC8 0px,#00CEC8 1px,transparent 1px,transparent 20px),repeating-linear-gradient(90deg,#00CEC8 0px,#00CEC8 1px,transparent 1px,transparent 20px)",
             }}
             aria-hidden
           />
@@ -367,7 +367,7 @@ function RightPanel({ vertical }: { vertical: Vertical }) {
             className="pointer-events-none absolute inset-0 rounded-3xl"
             style={{
               background:
-                "radial-gradient(ellipse at 10% 10%, rgba(57,255,20,0.05) 0%, transparent 60%)",
+                "radial-gradient(ellipse at 10% 10%, rgba(0,206,200,0.05) 0%, transparent 60%)",
             }}
             aria-hidden
           />
@@ -389,7 +389,7 @@ export default function SuperSection() {
     <section
       id="transform"
       ref={sectionRefCb}
-      className="relative py-24 lg:py-32 bg-canvas overflow-hidden"
+      className="relative py-20 lg:py-28 bg-canvas overflow-hidden"
     >
       {/* Top divider */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[1px] bg-gradient-to-r from-transparent via-sage/30 to-transparent" />
@@ -397,7 +397,7 @@ export default function SuperSection() {
       {/* Ambient neon glow */}
       <div
         className="pointer-events-none absolute -right-40 top-1/3 h-[500px] w-[500px] rounded-full blur-[180px]"
-        style={{ background: "rgba(57,255,20,0.03)" }}
+        style={{ background: "rgba(0,206,200,0.03)" }}
         aria-hidden
       />
 
@@ -408,7 +408,7 @@ export default function SuperSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4"
+            className="text-display-lg font-bold text-text-primary mb-4"
           >
             Pick a business like yours.{" "}
             <span className="gradient-text-gold">See what changes.</span>
@@ -446,11 +446,11 @@ export default function SuperSection() {
                 style={
                   isActive
                     ? {
-                        background: "linear-gradient(135deg, #C9A96E, #E8C87A)",
-                        color: "#0A0A0B",
-                        borderColor: "#C9A96E",
+                        background: "linear-gradient(135deg, #00CEC8, #33DDD8)",
+                        color: "#041A19",
+                        borderColor: "#00CEC8",
                         boxShadow:
-                          "0 0 20px rgba(201,169,110,0.35), 0 0 40px rgba(201,169,110,0.12)",
+                          "0 0 20px rgba(0,206,200,0.35), 0 0 40px rgba(0,206,200,0.12)",
                       }
                     : undefined
                 }
@@ -473,7 +473,7 @@ export default function SuperSection() {
           >
             {/* ── LEFT: Business-value copy ── */}
             <div className="rounded-3xl border border-border bg-surface p-8 bento-border flex flex-col">
-              <h3 className="text-display-md font-extrabold text-text-primary mb-4 leading-tight">
+              <h3 className="text-display-md font-bold text-text-primary mb-4 leading-tight">
                 {vertical.heading}
               </h3>
               {vertical.subtext && (
@@ -483,9 +483,9 @@ export default function SuperSection() {
                 {vertical.bullets.map((bullet) => (
                   <li
                     key={bullet}
-                    className="flex items-center gap-3 rounded-2xl border border-amber-500/10 bg-[#1c1b17] px-4 py-3.5 text-sm font-semibold text-amber-200/75 hover:bg-neutral-800/60 hover:border-amber-500/20 transition-all duration-200 cursor-default"
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1E2430] px-4 py-3.5 text-sm font-semibold text-slate-300 hover:bg-neutral-800/60 hover:border-white/20 transition-all duration-200 cursor-default"
                   >
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400" aria-hidden />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_8px_rgba(0,206,200,0.8)]" aria-hidden />
                     {bullet}
                   </li>
                 ))}

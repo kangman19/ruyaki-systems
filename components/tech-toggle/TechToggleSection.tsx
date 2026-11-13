@@ -287,7 +287,7 @@ export default function TechToggleSection() {
     <section
       id="process"
       ref={sectionRefCb}
-      className="relative py-24 lg:py-32 bg-[#0D1220]"
+      className="relative py-20 lg:py-28 bg-[#0D1220]"
     >
       {/* Background texture */}
       <div
@@ -319,7 +319,7 @@ export default function TechToggleSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 }}
-              className="text-display-lg font-extrabold text-text-primary mb-4"
+              className="text-display-lg font-bold text-text-primary mb-4"
             >
               Curious how it{" "}
               <span className="gradient-text-teal">actually works?</span>

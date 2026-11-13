@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navigation from "@/components/ui/Navigation";
 import Footer from "@/components/ui/Footer";
@@ -6,6 +6,9 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { SITE } from "@/lib/content";
 import MotionProvider from "@/components/MotionProvider";
 import { MOTION_BOOT_SCRIPT } from "@/lib/motion-boot";
+
+// Browser chrome / overscroll colour = Titanium Slate canvas
+export const viewport: Viewport = { themeColor: "#0E131D" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),

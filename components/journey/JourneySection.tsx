@@ -10,7 +10,7 @@ export default function JourneySection() {
   const step = JOURNEY[active];
 
   return (
-    <section id="process" ref={sectionRefCb} className="relative py-24 lg:py-32 bg-surface-2">
+    <section id="process" ref={sectionRefCb} className="relative py-20 lg:py-28 bg-surface-2">
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-amber/30 to-transparent" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -19,7 +19,7 @@ export default function JourneySection() {
             <span className="font-mono text-label text-amber uppercase tracking-wider">How it works</span>
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2, duration: 0.7, type: "spring", stiffness: 60, damping: 20 }}
-            className="text-display-lg font-extrabold text-text-primary mb-4">
+            className="text-display-lg font-bold text-text-primary mb-4">
             From first chat to launch day,{" "}<span className="gradient-text-gold">a path, not a process</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.35, duration: 0.6 }}
@@ -34,10 +34,10 @@ export default function JourneySection() {
           <svg viewBox="0 0 600 120" className="w-full" aria-hidden="true">
             {/* Static dotted path */}
             <path d="M 30 80 C 120 20, 180 110, 300 60 S 480 20, 570 70"
-              fill="none" stroke="#2A2A35" strokeWidth="5" strokeLinecap="round" strokeDasharray="1 14" />
+              fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="5" strokeLinecap="round" strokeDasharray="1 14" />
             {/* Animated gold fill */}
             <path d="M 30 80 C 120 20, 180 110, 300 60 S 480 20, 570 70"
-              fill="none" stroke="#C9A96E" strokeWidth="5" strokeLinecap="round"
+              fill="none" stroke="#00CEC8" strokeWidth="5" strokeLinecap="round"
               pathLength={100}
               style={{
                 strokeDashoffset: 100 - (active / (JOURNEY.length - 1)) * 100,
@@ -51,8 +51,8 @@ export default function JourneySection() {
               <button key={s.title} onClick={() => setActive(i)} aria-pressed={i === active}
                 className="group relative -translate-y-1"
                 style={{ marginTop: [50, -45, 5, -50, 20][i] }}>
-                <span className={`grid h-12 w-12 place-items-center rounded-full font-mono text-sm font-extrabold shadow-card transition-all duration-300 border ${
-                  i === active ? "scale-110 bg-gold text-canvas border-gold shadow-gold-sm" :
+                <span className={`grid h-12 w-12 place-items-center rounded-full font-mono text-sm font-bold shadow-card transition-all duration-300 border ${
+                  i === active ? "scale-110 bg-gold text-on-primary hover:bg-gold-hover active:bg-gold-dim active:scale-[0.99] border-gold shadow-gold-sm" :
                   i < active ? "bg-gold/20 text-gold border-gold/30" : "bg-surface border-border text-text-muted group-hover:border-gold/30 group-hover:text-gold"
                 }`}>
                   {i < active ? "✓" : i + 1}
@@ -73,7 +73,7 @@ export default function JourneySection() {
               transition={{ duration: 0.6, type: "spring", stiffness: 60, damping: 20 }}
               className="rounded-3xl bg-surface border border-border p-8 sm:p-10 bento-border">
               <p className="font-mono text-label text-text-muted uppercase tracking-widest">Stop {active + 1} of {JOURNEY.length}</p>
-              <h3 className="mt-2 text-display-md font-extrabold text-text-primary">{step.friendly}</h3>
+              <h3 className="mt-2 text-display-md font-bold text-text-primary">{step.friendly}</h3>
               <p className="mt-4 leading-relaxed text-text-secondary">{step.desc}</p>
               <div className="mt-6 rounded-2xl bg-gold/8 border border-gold/20 px-5 py-4 text-sm font-semibold text-gold">
                 What you get: {step.youGet}
